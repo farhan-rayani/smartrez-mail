@@ -9,7 +9,7 @@ This is a project to Expose Mail API usage (Fluent) through REST Web Service (& 
 EmailServiceClient client = EmailServiceClient.getInstance();
 client.sendMail(
 	new EmailMessage()
-	    .from("amit.lulla@flydubai.com")
+	    .from("farhan.rayani@flydubai.com")
 	    .to("biju.abraham@flydubai.com")
 	    .withSubject("SmartRez Mail")
 	    .withBody("Demo message")
@@ -52,9 +52,9 @@ This is subject to Change as per usage of flydubai IT - Team SmartRez.
 **Json** - Email with Body
 ```java
 {  
-    "fromAddress":"amit.lulla@flydubai.com",
+    "fromAddress":"farhan.rayani@flydubai.com",
     "toAddresses":[  
-        "amit.lulla@flydubai.com"
+        "farhan.rayani@flydubai.com"
     ],
     "ccAddresses":[],
     "bccAddresses":[],
@@ -68,8 +68,8 @@ This is subject to Change as per usage of flydubai IT - Team SmartRez.
 **Json** - Email with Body from Template
 ```java
 {
-	"fromAddress": "amit.lulla@flydubai.com",
-	"toAddresses": ["amit.lulla@flydubai.com"],
+	"fromAddress": "farhan.rayani@flydubai.com",
+	"toAddresses": ["farhan.rayani@flydubai.com"],
 	"ccAddresses": [],
 	"bccAddresses": [],
 	"attachments": [],
@@ -196,4 +196,4 @@ http://<IP>:<port>/smartrezmail/mail/refresh
 @POST
 
 ### Author
-**_Amit Lulla_** [amit.lulla@flydubai.com]
+**_Amit Lulla_** [farhan.rayani@flydubai.com]
