@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.flydubai</groupId>
+		<artifactId>smartrezmail</artifactId>
+		<version>2.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>smartrezmail-client</artifactId>
+	<name>smartrezmail-client</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.flydubai</groupId>
+			<artifactId>smartrezmail-common</artifactId>
+			<optional>false</optional>
+		</dependency>
+		
+		<!-- Load Balancer -->
+		<dependency>
+			<groupId>com.flydubai.restclientlib</groupId>
+			<artifactId>ribbon-httpclient</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.flydubai.restclient</groupId>
+			<artifactId>smartrez-restclient</artifactId>
+			<version>1.0.0-RELEASE</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<defaultGoal>package</defaultGoal>
+		<plugins>
+			<!-- compiler plugin configuration -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+					<source>1.8</source>
+					<target>1.8</target>
+					<!-- exclude log4j.properties -->
+					<excludes>
+						<exclude>**/log4j.properties</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+
+	<!-- Profiles start here -->
+	<profiles>
+		<!-- Development environment @ local -->
+		<profile>
+			<id>development</id>
+			<properties>
+				<url.name>http://localhost:8080/smartrezmail-server</url.name>
+			</properties>
+		</profile>
+		<!-- UAT environment @ UAT server -->
+		<profile>
+			<id>uat</id>
+			<properties>
+				<url.name>http://localhost:8080/smartrezmail</url.name>
+			</properties>
+		</profile>
+		<!-- Production environment @ production server -->
+		<profile>
+			<id>production</id>
+			<properties>
+				<url.name>http://smartrez.flydubai.com/smartrezmail</url.name>
+			</properties>
+		</profile>
+	</profiles>
+</project>
