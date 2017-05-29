@@ -196,4 +196,4 @@ http://<IP>:<port>/smartrezmail/mail/refresh
 @POST
 
 ### Author
-**_Amit Lulla_** [farhan.rayani@flydubai.com]
+**_Farhan Rayani_** [farhan.rayani@flydubai.com]
